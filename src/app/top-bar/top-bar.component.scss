@@ -1,0 +1,18 @@
+@import '/src/app/utils/scss/variables.scss';
+
+:host {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: $spacing-small;
+
+    background-color: $colors-primary;
+
+
+    h1 {
+        color: $colors-white;
+    }
+}
+

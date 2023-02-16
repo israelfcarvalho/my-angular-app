@@ -1,0 +1,13 @@
+@import '/src//app//utils/scss/variables.scss';
+
+button {
+   display: flex;
+   align-items: center;
+
+   padding: $spacing-extra-small $spacing-small;
+   color: $colors-primary;
+
+   i {
+    margin-right: $spacing-tiny;
+   }
+}
