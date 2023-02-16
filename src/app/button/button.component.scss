@@ -5,9 +5,23 @@ button {
    align-items: center;
 
    padding: $spacing-extra-small $spacing-small;
-   color: $colors-primary;
+   border: none;
+   border-radius: 4px;
 
    i {
     margin-right: $spacing-tiny;
+    color: inherit;
+   }
+
+   &.primary {
+      color: $colors-white;
+      background-color: $colors-primary;
+   }
+
+   &.secondary {
+      border: 1px solid $colors-primary;
+
+      color: $colors-primary;
+      background-color: $colors-white;      
    }
 }

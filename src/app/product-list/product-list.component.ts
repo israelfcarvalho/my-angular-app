@@ -9,6 +9,7 @@ import { products, Product } from 'src/app/entities/product';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent {
+  sharedButtonText = 'Share'
   products: Array<Product> = products
 
   formatProductTitle(name: string){
