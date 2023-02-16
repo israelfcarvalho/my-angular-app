@@ -1,0 +1,29 @@
+@import 'src/app/utils/scss/variables.scss';
+
+:host {
+    display: block;
+    padding: $spacing-small;
+
+    h2 {
+        margin-bottom: $spacing-medium;
+    }
+
+    div {
+        & + div {
+            margin-top: $spacing-medium;
+        }
+
+        h3 a {
+            color: $colors-primary;
+        }
+
+        p {
+            margin-top: $spacing-medium;
+        }
+
+        // TODO: replace this by app-button
+        button {
+            margin-top: $spacing-small;
+        }
+    }
+}
