@@ -10,6 +10,8 @@
       padding: $spacing-extra-small $spacing-small;
       border: none;
       border-radius: 4px;
+
+      cursor: pointer;
    
       i {
        margin-right: $spacing-tiny;
@@ -26,6 +28,14 @@
    
          color: $colors-primary;
          background-color: $colors-white;      
+      }
+
+      &:disabled {
+         cursor: not-allowed;
+      }
+
+      &:hover {
+         transform: scale3d(1.05, 1.05, 1);   
       }
    }
 }
