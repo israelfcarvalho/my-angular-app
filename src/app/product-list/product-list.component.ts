@@ -16,7 +16,11 @@ export class ProductListComponent {
     return `${name} details`
   }
 
-  share() {
+  handleShare() {
     window.alert('The product has been shared!');
+  }
+
+  handleNotify(){
+    window.alert('You will be notified when the product goes on sale')
   }
 }

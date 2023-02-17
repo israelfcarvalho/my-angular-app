@@ -6,5 +6,5 @@
     [icon]="'shopping_cart'" 
     [kind]="'secondary'" 
     [text]="buttonText" 
-    [onClick]="handleClickCart.bind(this)"
+    (onClick)="handleClickCart()"
 ></app-button>

@@ -8,6 +8,8 @@
 
     <p *ngIf="product.description">Description: {{product.description}}</p>
 
-    <app-button [type]="'button'" [onClick]="share" [text]="sharedButtonText"></app-button>
+    <app-button [type]="'button'" (onClick)="handleShare()" [text]="sharedButtonText"></app-button>
+
+    <app-product-alerts [product]="product" (notify)="handleNotify()"></app-product-alerts>
 
 </div>

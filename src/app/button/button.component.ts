@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 type ButtonIcon = 'shopping_cart'
 type ButtonType = 'button'
@@ -16,11 +16,7 @@ export class ButtonComponent {
   @Input() type?: ButtonType = 'button'
   @Input() kind?: ButtonKind = 'primary' 
 
-  @Input() onClick?: VoidFunction 
-
-  handleClick(){
-    if(this.onClick){
-      this.onClick()
-    }
-  }
+  @Output() onClick =  new EventEmitter()
 }
+
+
