@@ -49,7 +49,7 @@ export class CartService {
   }
 
   getShippingPrices(){
-    return this.httpClient.get<ShippingOptions>('/assets/shipping.json')
+    return this.httpClient.get<ShippingOptions>('/assets/shippingData.json')
   }
 }
 

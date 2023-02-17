@@ -1,5 +1,7 @@
 <h3>Cart</h3>
 
+<p><a routerLink="/shipping">Shipping Prices</a></p>
+
 <div [className]="'cart_item'" *ngFor="let cart of items">
     {{cart.product.name}} - {{cart.quantity}} - {{cart.product.price | currency}}
 </div>

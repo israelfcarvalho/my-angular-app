@@ -1,3 +1,9 @@
+@import '/src/app//utils/scss/variables.scss';
+
 :host {
     display: block;
+
+    a {
+        color: $colors-primary;
+    }
 }

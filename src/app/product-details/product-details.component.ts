@@ -26,7 +26,6 @@ export class ProductDetailsComponent {
 
   addToCart(product: Product){
     this.cartService.addItem(product)
-    window.alert(`${product.name} has been added to the cart!`)
   }
 }
 
