@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -9,11 +10,9 @@ import { CartService } from '../cart.service';
 export class TopBarComponent {
   buttonText = 'Checkout'
 
-  constructor(private cartService: CartService){}
+  constructor(private router: Router){}
 
   handleClickCart(){
-    const itemsCount = Object.keys(this.cartService.items).length
-
-    window.alert(`You have ${itemsCount} items in the cart!`)
+    this.router.navigate(['/cart'])
   }
 }
