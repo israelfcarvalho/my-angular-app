@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -8,7 +9,11 @@ import { Component } from '@angular/core';
 export class TopBarComponent {
   buttonText = 'Checkout'
 
+  constructor(private cartService: CartService){}
+
   handleClickCart(){
-    alert('go to checkout ' + this.buttonText)
+    const itemsCount = Object.keys(this.cartService.items).length
+
+    window.alert(`You have ${itemsCount} items in the cart!`)
   }
 }

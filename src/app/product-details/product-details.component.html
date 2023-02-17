@@ -1,7 +1,11 @@
 <h2>Product Details</h2>
 
-<div *ngIf="product">
-    <h3>{{product.name}}</h3>
-    <h4>{{product.price | currency}}</h4>
-    <p>{{product.description}}</p>
+<div [className]="'content'" *ngIf="product">
+    <app-button [text]="buyText" (onClick)="addToCart(product)"></app-button>
+
+    <div [className]="'content_info'">
+        <h3>{{product.name}}</h3>
+        <h4>{{product.price | currency}}</h4>
+        <p>{{product.description}}</p>
+    </div>
 </div>

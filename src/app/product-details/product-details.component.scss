@@ -1,3 +1,14 @@
+@import '/src/app/utils/scss/variables.scss';
+
 :host {
     display: block;
+
+    .content {
+        display: flex;
+        align-items: center;
+
+        &_info {
+            margin-left: $spacing-medium;
+        }
+    }
 }

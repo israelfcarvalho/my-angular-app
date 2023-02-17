@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute} from '@angular/router'
+import { CartService } from '../cart.service';
 import { Product, products } from '../entities/product';
 
 @Component({
@@ -8,15 +9,24 @@ import { Product, products } from '../entities/product';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent {
+  buyText = 'Buy'
   product?: Product
 
-  constructor(private activated: ActivatedRoute){}
+  constructor(
+    private activatedRouteService: ActivatedRoute,
+    private cartService: CartService
+  ){}
 
   ngOnInit(){
-    const params = this.activated.snapshot.paramMap
+    const params = this.activatedRouteService.snapshot.paramMap
     const productId = Number(params.get('productId'))
 
     this.product = products.find(product => product.id === productId)
+  }
+
+  addToCart(product: Product){
+    this.cartService.addItem(product)
+    window.alert(`${product.name} has been added to the cart!`)
   }
 }
 
