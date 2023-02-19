@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { CartService } from '../cart.service';
-import { CartItem, CartItems } from '../entities/cart';
+
+const checkoutFormInitialData = {
+  name: '',
+  address: ''
+}
 
 @Component({
   selector: 'app-cart',
@@ -8,7 +13,20 @@ import { CartItem, CartItems } from '../entities/cart';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent {
-  items: Array<CartItem> = Object.keys(this.cartService.items).map(cartItemKey => this.cartService.items[cartItemKey])
+  items = this.cartService.itemsArray
+  checkoutForm = this.formBuilder.group(checkoutFormInitialData)
 
-  constructor(private cartService: CartService){}
+  constructor(private cartService: CartService, private formBuilder: FormBuilder){}
+
+  onSubmit(){
+    this.cartService.clearItems()
+    this.items = this.cartService.itemsArray
+
+    console.warn('Your order has been submited', this.checkoutForm.value)
+
+    this.checkoutForm.reset(checkoutFormInitialData)
+  }
 }
+
+//TODO: Add validation to de form
+//TODO: perhaps create a custom FormBuilder to extend the current module and add some things like add initialData

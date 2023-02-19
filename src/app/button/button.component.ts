@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 type ButtonIcon = 'shopping_cart'
-type ButtonType = 'button'
+type ButtonType = 'button' | 'submit'
 type ButtonKind = 'primary' | 'secondary'
 
 @Component({

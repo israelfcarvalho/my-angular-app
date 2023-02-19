@@ -5,3 +5,17 @@
 <div [className]="'cart_item'" *ngFor="let cart of items">
     {{cart.product.name}} - {{cart.quantity}} - {{cart.product.price | currency}}
 </div>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" formControlName="name">
+    </div>
+
+    <div>
+        <label for="address">Address</label>
+        <input id="address" type="text" formControlName="address">
+    </div>
+
+    <app-button type="submit" [kind]="'primary'" [text]="'Purchase'"></app-button>
+</form>

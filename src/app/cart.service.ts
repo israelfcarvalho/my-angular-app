@@ -10,6 +10,9 @@ import { ShippingOptions } from './entities/shipping';
 
 export class CartService {
   items: CartItems = {}
+  get itemsArray(){
+    return Object.values(this.items)
+  }
 
   constructor(private httpClient: HttpClient) { }
 
