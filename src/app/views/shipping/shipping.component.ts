@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { CartService } from '../cart.service';
-import { ShippingOptions } from '../entities/shipping';
+import { CartService } from 'src/app/services/cart.service';
+import { ShippingOptions } from 'src/app/entities/shipping';
 
 @Component({
   selector: 'app-shipping',
