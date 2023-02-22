@@ -18,7 +18,9 @@ export class TopBarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.timerService.subscribe({})
+    this.timerService.subscribe({next: (time) => {
+      console.log({time})
+    } })
   }
   ngOnDestroy(): void {
     this.timerService.unsubscribe()

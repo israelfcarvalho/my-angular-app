@@ -39,7 +39,7 @@ export class TimerService {
     })
   }
 
-  subscribe(observer: Partial<Observer<number>>){
+  subscribe(observer: Pick<Observer<number>, 'next'> & Partial<Pick<Observer<number>, 'complete' | 'error'>>){
     const {complete, next} = observer
 
     observer.complete = () => {
