@@ -1,4 +1,3 @@
-<button [className]="kind" [type]="type" (click)="onClick.emit()">
+<button [className]="kind" [type]="type" (click)="onClick.emit($event)">
     <i *ngIf="icon" class="material-icons">{{icon}}</i>
     {{text}}
-</button>

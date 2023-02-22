@@ -16,7 +16,7 @@ export class ButtonComponent {
   @Input() type?: ButtonType = 'button'
   @Input() kind?: ButtonKind = 'primary' 
 
-  @Output() onClick =  new EventEmitter()
+  @Output() onClick =  new EventEmitter<MouseEvent>()
 }
 
 
