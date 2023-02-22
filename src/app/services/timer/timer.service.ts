@@ -1,10 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Observable, Observer, Subscription } from 'rxjs';
+import { from, Observable, Observer, of, Subscription } from 'rxjs';
 
 @Injectable()
 export class TimerService {
   timer!: Observable<number>
+  get timerFormated(){
+    const seconds = this._seconds % 60
+    const minutes = Math.floor(this._seconds/60) % 60
+    const hours = Math.floor(this._seconds/(60*60)) % 24
+
+    return of(`${hours}:${minutes}:${seconds}`)
+  }
+  get timerArray(){
+    return from(['hs'])
+  }
+
   private timerSubscription?: Subscription
+  private _seconds = 0
 
   constructor() { 
     this.createTimer()
@@ -28,6 +40,28 @@ export class TimerService {
   }
 
   subscribe(observer: Partial<Observer<number>>){
+    const {complete, next} = observer
+
+    observer.complete = () => {
+      if(complete){
+        complete()
+      }
+
+      this._seconds = 0
+    }
+
+    observer.next = (number) => {
+      if(next){
+        next(number)
+      }
+
+      this._seconds = number
+    }
+    
+    if(!this.timerSubscription?.closed){
+      this.unsubscribe()
+    }
+
     this.timerSubscription = this.timer.subscribe(observer)
   }
 
@@ -35,5 +69,4 @@ export class TimerService {
     this.timerSubscription?.unsubscribe()
     this.timerSubscription = undefined
   }
-
 }

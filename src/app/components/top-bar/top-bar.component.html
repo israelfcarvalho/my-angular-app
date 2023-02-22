@@ -2,7 +2,7 @@
     <h1>My Store</h1>
 </a>
 
-<div>Time running application: {{timerService.timer | async}}</div>
+<div>Time running application: {{timerService.timerFormated | async}} {{timerService.timerArray | async}}</div>
 
 <app-button 
     [icon]="'shopping_cart'" 
