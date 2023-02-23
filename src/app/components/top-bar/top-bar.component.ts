@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { TimerService } from 'src/app/services/timer/timer.service';
 
 @Component({
@@ -10,19 +11,33 @@ import { TimerService } from 'src/app/services/timer/timer.service';
 })
 export class TopBarComponent implements OnInit, OnDestroy {
   buttonText = 'Checkout'
+  private _timer: number = 0
+  private timerSubscription!: Subscription
+  get timer(){
+    return TimerService.format(this._timer)
+  }
+  get timerUnit(){
+    return TimerService.timerArray
+  }
 
-  constructor(private router: Router, public timerService: TimerService){}
+  constructor(private router: Router, private timerService: TimerService){}
 
   handleClickCart(){
     this.router.navigate(['/cart'])
   }
 
   ngOnInit(): void {
-    this.timerService.subscribe({next: (time) => {
-      console.log({time})
-    } })
+    this.timerService.timer.subscribe({
+      next: (time) => {
+        this._timer = time
+      },
+      complete: () => {
+        this._timer = 0
+      }
+    })
   }
+
   ngOnDestroy(): void {
-    this.timerService.unsubscribe()
+    this.timerSubscription.unsubscribe()
   }
 }

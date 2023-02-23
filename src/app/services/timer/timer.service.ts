@@ -1,22 +1,9 @@
 import { Injectable } from '@angular/core';
-import { from, Observable, Observer, of, Subscription } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 
 @Injectable()
 export class TimerService {
   timer!: Observable<number>
-  get timerFormated(){
-    const seconds = this._seconds % 60
-    const minutes = Math.floor(this._seconds/60) % 60
-    const hours = Math.floor(this._seconds/(60*60)) % 24
-
-    return of(`${hours}:${minutes}:${seconds}`)
-  }
-  get timerArray(){
-    return from(['hs'])
-  }
-
-  private timerSubscription?: Subscription
-  private _seconds = 0
 
   constructor() { 
     this.createTimer()
@@ -39,34 +26,15 @@ export class TimerService {
     })
   }
 
-  subscribe(observer: Pick<Observer<number>, 'next'> & Partial<Pick<Observer<number>, 'complete' | 'error'>>){
-    const {complete, next} = observer
+  static format(timeInSeconds: number){
+    const seconds = timeInSeconds % 60
+    const minutes = Math.floor(timeInSeconds/60) % 60
+    const hours = Math.floor(timeInSeconds/(60*60)) % 24
 
-    observer.complete = () => {
-      if(complete){
-        complete()
-      }
-
-      this._seconds = 0
-    }
-
-    observer.next = (number) => {
-      if(next){
-        next(number)
-      }
-
-      this._seconds = number
-    }
-    
-    if(!this.timerSubscription?.closed){
-      this.unsubscribe()
-    }
-
-    this.timerSubscription = this.timer.subscribe(observer)
+    return of(`${hours}:${minutes}:${seconds}`)
   }
 
-  unsubscribe(){
-    this.timerSubscription?.unsubscribe()
-    this.timerSubscription = undefined
+  static get timerArray(){
+    return from(['hs'])
   }
 }
