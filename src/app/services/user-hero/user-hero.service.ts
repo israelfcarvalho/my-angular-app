@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CartService } from './cart.service';
-import { UserService } from './user.service';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Injectable()
 export class UserHeroService extends UserService {

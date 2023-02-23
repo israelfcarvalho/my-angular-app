@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { CartService } from 'src/app/services/cart.service';
-import { UserHeroService } from 'src/app/services/user-hero.service';
-import { UserService } from 'src/app/services/user.service';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { UserHeroService } from 'src/app/services/user-hero/user-hero.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 const checkoutFormInitialData = {
   name: '',

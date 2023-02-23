@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 
-import { CartService } from 'src/app/services/cart.service';
+import { CartService } from 'src/app/services/cart/cart.service';
 import { ShippingOptions } from 'src/app/entities/shipping';
 import { TimerShareableService } from 'src/app/services/timer-shareable/timer-shareable.service';
 
