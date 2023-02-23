@@ -9,7 +9,7 @@ export class TimerService {
     this.createTimer()
   }
 
-  private createTimer(){
+  protected createTimer(){
     this.timer = new Observable((observer) => {
       let timePassed = 0
       observer.next(0)

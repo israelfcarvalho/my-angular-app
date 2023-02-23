@@ -30,6 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    //TODO: this should be set on app-routing module, that already exists
     RouterModule.forRoot([
       {path: '', component: ProductListComponent},
       {path: 'products/:productId', component: ProductDetailsComponent},
