@@ -1,29 +1,26 @@
 import { Injectable } from '@angular/core';
-import { from, Observable, of } from 'rxjs';
+import { from, interval, map, Observable, of, share } from 'rxjs';
 
 @Injectable()
 export class TimerService {
   timer!: Observable<number>
+  timerShareable!:Observable<number>
 
-  constructor() { 
+  constructor() {
     this.createTimer()
   }
 
   protected createTimer(){
-    this.timer = new Observable((observer) => {
-      let timePassed = 0
-      observer.next(0)
-      const interval = setInterval(() => {
-        timePassed+=1
-        observer.next(timePassed)
-      }, 1000)
+    this.timer = interval(1000)
+    this.timerShareable = this.timer.pipe(share())
+  }
 
-      return {
-        unsubscribe: () => {
-          clearInterval(interval)
-        }
-      }
-    })
+  hours(){
+    return this.timer.pipe(map(time => Math.floor(time/(60*60)) % 24))
+  }
+
+  minutes(){
+    return map<number, number>(time => Math.floor(time/60) % 60)(this.timer)
   }
 
   static format(timeInSeconds: number){

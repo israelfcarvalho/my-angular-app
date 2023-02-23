@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { from, Observable } from 'rxjs';
 import { CartItems } from 'src/app/entities/cart';
 import { Product } from 'src/app/entities/product';
 import { ShippingOptions } from 'src/app/entities/shipping';
@@ -51,8 +52,8 @@ export class CartService {
     return removed
   }
 
-  getShippingPrices(){
-    return this.httpClient.get<ShippingOptions>('/assets/shippingData.json')
+  getShippingPrices(): Observable<ShippingOptions>{
+    return from(fetch('/assets/shippingData.json').then(res => res.json()))
   }
 }
 

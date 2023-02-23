@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { catchError, Observable, retry, Subscription } from 'rxjs';
 
 import { CartService } from 'src/app/services/cart/cart.service';
 import { ShippingOptions } from 'src/app/entities/shipping';
@@ -15,10 +15,20 @@ export class ShippingComponent implements OnDestroy{
   shippingCosts: Observable<ShippingOptions>
 
   constructor(private cartService: CartService, private timerShareableService: TimerShareableService){
-    this.shippingCosts = this.cartService.getShippingPrices()
-    this.timerSubscription = this.timerShareableService.timer.subscribe({next(value){
-      console.log(`timer on shipping component: ${value}`)
-    }})
+    this.shippingCosts = 
+      this.cartService.getShippingPrices().pipe(
+        retry(2),
+        catchError(err => {
+          console.log(err)
+          return []
+        })
+      )
+
+    this.timerSubscription = this.timerShareableService.timer.subscribe({
+      next(value){
+        console.log(`timer on shipping component: ${value}`)
+      }
+    })
   }
 
   ngOnDestroy(): void {
