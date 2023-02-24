@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { UserHeroService } from 'src/app/services/user-hero/user-hero.service';
 import { UserService } from 'src/app/services/user/user.service';
@@ -17,13 +17,16 @@ const checkoutFormInitialData = {
 })
 export class CartComponent {
   items = this.cartService.itemsArray
-  checkoutForm = this.formBuilder.group(checkoutFormInitialData)
+  checkoutForm: FormGroup
 
   constructor(
     private cartService: CartService, 
     private formBuilder: FormBuilder,
     public user:UserService
-  ){}
+  ){
+    this.checkoutForm = this.formBuilder.group(checkoutFormInitialData)
+    this.checkoutForm.get('name')?.valueChanges.forEach(name => console.log({name}))
+  }
 
   onSubmit(){
     this.cartService.clearItems()
