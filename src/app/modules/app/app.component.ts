@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
-import { filter, map, Observable } from 'rxjs';
-import { HtmlEventsService } from './services/html-events/html-events.service';
-import { TimerShareableService } from './services/timer-shareable/timer-shareable.service';
+import { filter, map } from 'rxjs';
+import { HtmlEventsService } from 'src/app/services/html-events/html-events.service';
+import { TimerShareableService } from 'src/app/services/timer-shareable/timer-shareable.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private htmlEventsService: HtmlEventsService, 
     private timerShareableService: TimerShareableService,
-    private router: Router
+    public router: Router
   ){}
 
   ngOnInit(): void {

@@ -1,0 +1,7 @@
+<app-top-bar></app-top-bar>
+
+<a *ngIf="!router.isActive('/my-first-module', false)" [routerLink]="'/my-first-module'">My first Module</a>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
