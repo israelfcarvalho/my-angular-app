@@ -28,7 +28,7 @@ import { ComponentsModule } from 'src/app/modules/components/components.module';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    ComponentsModule,
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
