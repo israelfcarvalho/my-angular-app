@@ -14,8 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private htmlEventsService: HtmlEventsService, 
     private timerShareableService: TimerShareableService,
-    public router: Router,
-    public myFirstModuleService: MyFirstModuleService
+    public router: Router
   ){}
 
   ngOnInit(): void {
