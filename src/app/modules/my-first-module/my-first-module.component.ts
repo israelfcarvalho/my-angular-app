@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MyFirstModuleService } from 'src/app/services/my-first-module-service/my-first-module.service';
+import { MyFirstModuleService } from 'src/app/modules/my-first-module/my-first-module-services/my-first-module-service/my-first-module.service';
 
 @Component({
   selector: 'app-my-first-module',

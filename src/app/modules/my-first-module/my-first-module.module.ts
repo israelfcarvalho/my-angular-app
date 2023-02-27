@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MyFirstModuleRoutingModule } from './my-first-module-routing.module';
 import { MyFirstModuleComponent } from './my-first-module.component';
 import { ComponentsModule } from 'src/app/modules/components/components.module';
+import { MyFirstModuleServicesModule } from './my-first-module-services/my-first-module-services.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ComponentsModule } from 'src/app/modules/components/components.module';
   imports: [
     CommonModule,
     MyFirstModuleRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    MyFirstModuleServicesModule
   ]
 })
 export class MyFirstModuleModule { }

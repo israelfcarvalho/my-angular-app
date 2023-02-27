@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { MyFirstModuleModule } from 'src/app/modules/my-first-module/my-first-module.module';
+import { MyFirstModuleServicesModule } from '../my-first-module-services.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: MyFirstModuleServicesModule
 })
 export class MyFirstModuleService {
   title = 'My first Module'
