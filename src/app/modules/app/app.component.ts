@@ -3,7 +3,6 @@ import { NavigationStart, Router } from '@angular/router';
 import { filter, map } from 'rxjs';
 import { HtmlEventsService } from 'src/app/services/html-events/html-events.service';
 import { TimerShareableService } from 'src/app/services/timer-shareable/timer-shareable.service';
-import { MyFirstModuleService } from '../my-first-module/my-first-module-services/my-first-module-service/my-first-module.service';
 
 @Component({
   selector: 'app-root',
