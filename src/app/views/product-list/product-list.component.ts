@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { products, Product } from 'src/app/entities/product';
+import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/entities/product';
+import { ProductService } from 'src/app/services/product/product.service';
 
 
 
@@ -8,9 +9,20 @@ import { products, Product } from 'src/app/entities/product';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
   sharedButtonText = 'Share'
-  products: Array<Product> = products
+  products: Array<Product> = []
+
+  constructor(private productService: ProductService){}
+
+  ngOnInit(): void {
+      this.productService.getAll()
+        .subscribe({
+          next: products => {
+            this.products = products
+          }
+        })
+  }
 
   formatProductTitle(name: string){
     return `${name} details`

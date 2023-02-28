@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
 import { CartItems } from 'src/app/entities/cart';
@@ -15,7 +14,7 @@ export class CartService {
     return Object.values(this.items)
   }
 
-  constructor(private httpClient: HttpClient) { }
+  constructor() { }
 
   private hasProduct(productId: number){
     return !!this.items[productId]
