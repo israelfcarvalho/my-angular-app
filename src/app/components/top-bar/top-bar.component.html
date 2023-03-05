@@ -1,6 +1,10 @@
-<a [routerLink]="['/']">
-    <h1>My Store</h1>
-</a>
+<div [ngClass]="{logo: true}">
+    <div [ngClass]="{'environment': true, context: environment} | className">{{environment | titlecase}}</div>
+
+    <a [routerLink]="['/']">
+        <h1>My Store</h1>
+    </a>
+</div>
 
 <div>Time running application: {{timer | async}} {{timerUnit | async}}</div>
 

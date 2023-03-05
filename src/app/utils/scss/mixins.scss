@@ -1,0 +1,15 @@
+@import './variables.scss';
+
+$box-shadow: (
+    "default": 0px 0px 2px 1px $colors-grey-light
+);
+
+@mixin boxShadow($type: "default"){
+    $prospect-box-shadow: map-get($box-shadow, $type);
+
+    @if $prospect-box-shadow {
+        box-shadow: $prospect-box-shadow;
+    } @else {
+        box-shadow: map-get($box-shadow, "default");
+    }
+}
