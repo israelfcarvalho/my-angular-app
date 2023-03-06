@@ -1,0 +1,14 @@
+{
+    "/lerna-docker": {
+        "target": "http://localhost:3000",
+        "secure": false,
+        "pathRewrite": {
+            "/lerna-docker": "/"
+        },
+        "logLevel": "silent"
+    },
+    "/_next": {
+        "target": "http://localhost:3000",
+        "secure": false
+    }
+}
