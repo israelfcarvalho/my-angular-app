@@ -19,10 +19,9 @@ export class HtmlEventsService {
 
       window.document.addEventListener(eventName, eventListener)
 
-      return ({unsubscribe: () => {
-        console.log('remove observer of event: ', eventName)
+      return {unsubscribe: () => {
         window.document.removeEventListener(eventName, eventListener)
-      }})
+      }}
     })
 
     const subscription = observer.subscribe({next: event => {
