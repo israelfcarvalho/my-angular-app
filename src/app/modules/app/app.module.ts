@@ -12,6 +12,7 @@ import { CartComponent } from 'src/app/views/cart/cart.component';
 import { ShippingComponent } from 'src/app/views/shipping/shipping.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from 'src/app/modules/components/components.module';
+import { ClassNamePipe } from '../../pipes/class-name.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ComponentsModule } from 'src/app/modules/components/components.module';
     ProductAlertsComponent,
     ProductDetailsComponent,
     CartComponent,
-    ShippingComponent
+    ShippingComponent,
+    ClassNamePipe
   ],
   imports: [
     HttpClientModule,
