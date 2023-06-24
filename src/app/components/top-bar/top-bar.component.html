@@ -2,7 +2,10 @@
     <div [ngClass]="{'environment': true, context: environment} | className">{{environment | titlecase}}</div>
 
     <a [routerLink]="['/']">
-        <h1>My Store</h1>
+        <h1>
+            Ecommerce 
+            {{ecommerceService.name}}
+        </h1>
     </a>
 </div>
 

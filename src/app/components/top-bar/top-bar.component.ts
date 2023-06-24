@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, Subscription, take } from 'rxjs';
+import { EcommerceService } from 'src/app/services/ecommerce/ecommerce.service';
+import { EcommerceInjector } from 'src/app/services/ecommerce/ecommerce.service.factory';
 import { TimerService } from 'src/app/services/timer/timer.service';
 import { environment } from 'src/environments/environment';
 
@@ -11,6 +13,8 @@ import { environment } from 'src/environments/environment';
   providers: [TimerService]
 })
 export class TopBarComponent implements OnInit, OnDestroy {
+  ecommerceService = EcommerceInjector.get(EcommerceService)
+
   environment = environment.context
   buttonText = 'Checkout'
   private _timer: number = 0
@@ -23,7 +27,10 @@ export class TopBarComponent implements OnInit, OnDestroy {
     return TimerService.timerArray
   }
 
-  constructor(private router: Router, private timerService: TimerService){}
+  constructor(
+    private router: Router, 
+    private timerService: TimerService,
+  ){}
 
   handleClickCart(){
     this.router.navigate(['/cart'])

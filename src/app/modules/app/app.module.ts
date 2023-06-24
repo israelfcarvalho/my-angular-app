@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 
@@ -13,6 +13,7 @@ import { ShippingComponent } from 'src/app/views/shipping/shipping.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from 'src/app/modules/components/components.module';
 import { ClassNamePipe } from '../../pipes/class-name.pipe';
+import { initializeEcommerceFactory } from 'src/app/services/ecommerce/ecommerce.service.factory';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,14 @@ import { ClassNamePipe } from '../../pipes/class-name.pipe';
     ReactiveFormsModule,
     ComponentsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (injector: Injector) => initializeEcommerceFactory(injector, 'isaac'),
+      deps: [Injector],
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
