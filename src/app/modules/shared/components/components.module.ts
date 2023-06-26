@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from 'src/app/modules/shared/components/button/button.component';
-import { LazyLoadDirective } from './lazy-load/lazy-load.directive';
-
-
 
 @NgModule({
-  declarations: [ButtonComponent, LazyLoadDirective],
+  declarations: [ButtonComponent],
   imports: [
     CommonModule
   ],
-  exports: [ButtonComponent, LazyLoadDirective]
+  exports: [ButtonComponent]
 })
 export class ComponentsModule { }

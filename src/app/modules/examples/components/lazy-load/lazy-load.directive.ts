@@ -1,6 +1,6 @@
-import { Directive, EventEmitter, Input, OnDestroy, OnInit, Output, SimpleChange, SimpleChanges, ViewContainerRef } from '@angular/core';
+import { Directive, EventEmitter, Input, OnDestroy, OnInit, Output, SimpleChanges, ViewContainerRef } from '@angular/core';
 import { LazyLoadComponentBindings } from './lazy-load.component';
-import { LazyLoadService } from '../../services/lazy-load/lazy-load.service';
+import { LazyLoadService } from '../../../shared/services/lazy-load/lazy-load.service';
 import { ReplaySubject, Subject, takeUntil } from 'rxjs';
 
 @Directive({
@@ -28,7 +28,7 @@ export class LazyLoadDirective implements OnInit, OnDestroy, LazyLoadComponentBi
   }
 
   private async load(){
-    const { LazyLoadComponent } = await import('src/app/modules/shared/components/lazy-load/lazy-load.component')
+    const { LazyLoadComponent } = await import('src/app/modules/examples/components/lazy-load/lazy-load.component')
     const { instance } = this.lazyLoadService.load(this.viewContainerRef, LazyLoadComponent)
 
     this.instance = instance
