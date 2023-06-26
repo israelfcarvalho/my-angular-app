@@ -23,7 +23,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.router.events.pipe(
       filter(event => event instanceof NavigationStart),
       map(value => {
-        console.log({value})
         return value
       })
     ).subscribe()

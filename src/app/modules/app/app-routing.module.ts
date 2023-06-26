@@ -14,7 +14,8 @@ const routes: Routes = [
     { 
       path: 'my-first-module', 
       loadChildren: () => import('src/app/modules/my-first-module/my-first-module.module').then(m => m.MyFirstModuleModule)
-    }
+    },
+    { path: 'lazy-load-component-example', loadChildren: () => import('../lazy-load-component-example/lazy-load-component-example.module').then(m => m.LazyLoadComponentExampleModule) }
 ];
 
 @NgModule({

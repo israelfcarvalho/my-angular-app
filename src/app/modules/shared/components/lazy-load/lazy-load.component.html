@@ -1,0 +1,9 @@
+<h1>Lazy Load Component</h1>
+
+<div *ngIf="context">Context: {{context}}</div>
+
+<form (ngSubmit)="onSubmit($event)">
+    <input type="text" [value]="emitValue" (change)="onEmitValueChange($event)">
+
+    <button type="submit">Emmit</button>
+</form>

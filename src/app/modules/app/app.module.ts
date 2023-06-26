@@ -11,7 +11,7 @@ import { ProductDetailsComponent } from 'src/app/views/product-details/product-d
 import { CartComponent } from 'src/app/views/cart/cart.component';
 import { ShippingComponent } from 'src/app/views/shipping/shipping.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ComponentsModule } from 'src/app/modules/components/components.module';
+import { ComponentsModule } from 'src/app/modules/shared/components/components.module';
 import { ClassNamePipe } from '../../pipes/class-name.pipe';
 import { initializeEcommerceFactory } from 'src/app/services/ecommerce/ecommerce.service.factory';
 

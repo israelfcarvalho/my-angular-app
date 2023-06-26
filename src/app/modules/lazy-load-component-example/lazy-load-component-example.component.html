@@ -1,0 +1,17 @@
+<header>
+    <h1>Example of lazy load component</h1>
+</header>
+
+<section>
+    <h2>Component will be loaded here</h2>
+    <ng-template 
+        *ngIf="showComponent" 
+        appLazyLoad
+        context="lazy-load-example"
+        (intanceEmitter)="onLazyLoadComponentEmmit($event)"
+    ></ng-template>
+</section>
+
+<section>
+    <button (click)="load()">{{showComponent ? 'Unload' : 'Load'}}</button>
+</section>
