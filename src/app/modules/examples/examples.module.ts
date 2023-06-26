@@ -5,13 +5,15 @@ import { ExamplesRoutingModule } from './examples-routing.module';
 import { ExamplesComponent } from './examples.component';
 import { LazyLoadDirective } from './components/lazy-load/lazy-load.directive';
 import { LazyLoadComponentExampleComponent } from './views/lazy-load-component-example/lazy-load-component-example.component';
+import { NgModelExampleComponent } from './views/ng-model-example/ng-model-example.component';
 
 
 @NgModule({
   declarations: [
     ExamplesComponent,
     LazyLoadDirective,
-    LazyLoadComponentExampleComponent
+    LazyLoadComponentExampleComponent,
+    NgModelExampleComponent
   ],
   imports: [
     CommonModule,
