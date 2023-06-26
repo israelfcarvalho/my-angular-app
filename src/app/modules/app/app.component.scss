@@ -1,11 +1,17 @@
 @import '/src/app/utils/scss/variables.scss';
 
 :host {
-    display: block;
+    display: flex;
+    flex-direction: column;
+
     padding: $spacing-small;
 
     width: 100%;
     height: 100%;
 
     overflow: auto;
+
+    .container {
+        flex: 1;
+    }
 }

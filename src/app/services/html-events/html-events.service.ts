@@ -25,8 +25,6 @@ export class HtmlEventsService {
     })
 
     const subscription = observer.subscribe({next: event => {
-      let target = 'unknow'
-
       console.log(`[[DISPATCHED]] event: ${event.eventName} - ${String(event.field)}: ${event.value}`)
     }})
 
