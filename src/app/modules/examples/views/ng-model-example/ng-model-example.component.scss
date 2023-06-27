@@ -1,0 +1,29 @@
+:host {
+    display: flex;
+    flex-direction: column;
+
+    padding: 16px;
+
+    fieldset {
+        padding: 8px;
+
+        & + fieldset {
+            margin-top: 24px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+
+            margin-top: 24px;
+
+            button {
+                padding: 4px 16px;
+
+                & + button{
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+}

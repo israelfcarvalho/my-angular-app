@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-ng-model-example',
@@ -6,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ng-model-example.component.scss']
 })
 export class NgModelExampleComponent implements OnInit {
-  ngOnInit(): void {
-      
+  nameRF = new FormControl('')
+
+  constructor(){}
+
+  ngOnInit(): void {}
+
+  onSubmitTDF(ngForm: NgForm){
+    alert(JSON.stringify(ngForm.value))
+    ngForm.reset()
   }
 }

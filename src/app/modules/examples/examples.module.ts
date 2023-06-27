@@ -6,6 +6,7 @@ import { ExamplesComponent } from './examples.component';
 import { LazyLoadDirective } from './components/lazy-load/lazy-load.directive';
 import { LazyLoadComponentExampleComponent } from './views/lazy-load-component-example/lazy-load-component-example.component';
 import { NgModelExampleComponent } from './views/ng-model-example/ng-model-example.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { NgModelExampleComponent } from './views/ng-model-example/ng-model-examp
   ],
   imports: [
     CommonModule,
-    ExamplesRoutingModule
+    ExamplesRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
 })
 export class ExamplesModule { }
