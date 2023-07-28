@@ -1,0 +1,53 @@
+<form>
+    <fieldset>
+        <legend> Reactive Form </legend>
+    
+        <label for="name">
+            Name: 
+            <input type="text" id="name" [formControl]="nameRF">
+        </label>
+    
+        <div>Model Name: {{nameRF.value}}</div>
+    </fieldset>
+</form>
+
+<form (ngSubmit)="onSubmitTDF(form)" #form="ngForm">
+    <fieldset>
+        <legend> Template Driven Forms </legend>
+    
+        <label for="nameTDF">
+            Name: 
+            <input
+                #nameCtrl="ngModel"
+                type="text" 
+                id="nameTDF"
+                name="name"
+                ngModel
+                required
+                minlength="2"
+            >
+        </label>
+        <div>Value: {{nameCtrl.value}}</div>
+        <div>Valid: {{nameCtrl.valid}}</div>
+    
+        <label for="lastNameTDF">
+            Last Name: 
+            <input
+                #lastNameCtrl="ngModel"
+                type="text" 
+                id="lastNameTDF"
+                name="lastName"
+                ngModel
+                required
+                minlength="2"
+            >
+        </label>
+        <div>Value: {{lastNameCtrl.value}}</div>
+        <div>Valid: {{lastNameCtrl.valid}}</div>
+
+        <div ngClass="actions">
+            <button type="submit" [disabled]="form.invalid">submit</button>
+            <button type="button" (click)="form.reset()">reset</button>
+        </div>
+    </fieldset>
+</form>

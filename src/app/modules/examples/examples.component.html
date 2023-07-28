@@ -1,7 +1,7 @@
 <h1>Examples</h1>
 
 <ul *ngIf="routes.length">
-    <li *ngFor="let route in routes">
+    <li *ngFor="let route of routes">
         <a [routerLink]="route">{{route}}</a>
     </li>
 </ul>

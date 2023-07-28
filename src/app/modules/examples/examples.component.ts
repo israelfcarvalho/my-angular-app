@@ -12,8 +12,6 @@ export class ExamplesComponent {
   constructor(private activatedRoute: ActivatedRoute){}
 
   ngOnInit(): void {
-    
-
       this.activatedRoute.data.subscribe({
         next: data => {
           this.routes = data['routes']
